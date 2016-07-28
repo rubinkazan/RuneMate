@@ -1,16 +1,3 @@
-package RuneMate.Creative_Cooks_Assistant;
-
-public class CooksAssistant {
-
-    private NpcQueryBuilder getCook = Npcs.newQuery().names("Cook");
-    private StopWatch runningTime = new StopWatch();
-    private Coordinate startPosition;
-
-
-
-
-}
-/*
  Logic:
         Pre-req:
          - Are you logged in?
@@ -51,4 +38,3 @@ public class CooksAssistant {
                 - Return to Cook
                 - Quest Complete
                 - Log Out
- */
