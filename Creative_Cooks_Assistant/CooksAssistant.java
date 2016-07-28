@@ -20,20 +20,20 @@ public class CooksAssistant {
     private final static Coordinate millLocation = new Coordinate(7,8); //TODO: find Mill coordinates.
 
 
-
-    //x + y being cowpen
-
+    
     public void execute(){
+
         final WebPath milkPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(milkLocation);
         final WebPath eggPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(eggLocation);
         final WebPath wheatPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(wheatLocation);
         final WebPath millPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(millLocation);
 
+        //nullcheck
         if(milkPath != null){
             milkPath.step();
         }
-    }
 
+    }
 
 
 
