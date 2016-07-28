@@ -11,17 +11,27 @@ import com.runemate.game.api.hybrid.util.StopWatch;
 public class CooksAssistant {
 
     private NpcQueryBuilder getCook = Npcs.newQuery().names("Cook");
+    private NpcQueryBuilder getMillie = Npcs.newQuery().names("Millie Miller");
     private StopWatch runningTime = new StopWatch();
     private Coordinate startPosition;
-    private final static Coordinate milkLocation = new Coordinate(4,5); //TODO: find cow pen coordinates.
-    private final static Coordinate eggLocation  = new Coordinate(x,y); //TODO: find egg farm coordinates.
-    private final static Coordinate wheatLocation = new Coordinate(x,y); //TODO: find wheat farm coordinates.
+    private final static Coordinate milkLocation = new Coordinate(1,2); //TODO: find Cow farm coordinates.
+    private final static Coordinate eggLocation  = new Coordinate(3,4); //TODO: find Egg farm coordinates.
+    private final static Coordinate wheatLocation = new Coordinate(5,6); //TODO: find Wheat farm coordinates.
+    private final static Coordinate millLocation = new Coordinate(7,8); //TODO: find Mill coordinates.
+
 
 
     //x + y being cowpen
 
     public void execute(){
-        final WebPath path = Traversal.getDefaultWeb().getPathBuilder().buildTo(milkLocation);
+        final WebPath milkPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(milkLocation);
+        final WebPath eggPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(eggLocation);
+        final WebPath wheatPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(wheatLocation);
+        final WebPath millPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(millLocation);
+
+        if(milkPath != null){
+            milkPath.step();
+        }
     }
 
 
