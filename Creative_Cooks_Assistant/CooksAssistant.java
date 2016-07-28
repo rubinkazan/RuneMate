@@ -1,10 +1,28 @@
 package RuneMate.Creative_Cooks_Assistant;
 
+
+import com.runemate.game.api.hybrid.location.Coordinate;
+import com.runemate.game.api.hybrid.location.navigation.Traversal;
+import com.runemate.game.api.hybrid.location.navigation.web.WebPath;
+import com.runemate.game.api.hybrid.queries.NpcQueryBuilder;
+import com.runemate.game.api.hybrid.region.Npcs;
+import com.runemate.game.api.hybrid.util.StopWatch;
+
 public class CooksAssistant {
 
     private NpcQueryBuilder getCook = Npcs.newQuery().names("Cook");
     private StopWatch runningTime = new StopWatch();
     private Coordinate startPosition;
+    private final static Coordinate milkLocation = new Coordinate(4,5); //TODO: find cow pen coordinates.
+    private final static Coordinate eggLocation  = new Coordinate(x,y); //TODO: find egg farm coordinates.
+    private final static Coordinate wheatLocation = new Coordinate(x,y); //TODO: find wheat farm coordinates.
+
+
+    //x + y being cowpen
+
+    public void execute(){
+        final WebPath path = Traversal.getDefaultWeb().getPathBuilder().buildTo(milkLocation);
+    }
 
 
 
