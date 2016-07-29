@@ -8,29 +8,31 @@ import com.runemate.game.api.hybrid.location.Coordinate;
 import com.runemate.game.api.hybrid.location.navigation.Traversal;
 import com.runemate.game.api.hybrid.location.navigation.web.WebPath;
 import com.runemate.game.api.hybrid.queries.NpcQueryBuilder;
+import com.runemate.game.api.hybrid.region.GameObjects;
 import com.runemate.game.api.hybrid.region.Npcs;
 
 public class CooksAssistant{
 
     private NpcQueryBuilder getCook = Npcs.newQuery().names("Cook");
     private NpcQueryBuilder getMillie = Npcs.newQuery().names("Millie Miller");
-    private final static Coordinate milkLocation = new Coordinate(1,2); //TODO: find Cow farm coordinates.
-    private final static Coordinate eggLocation  = new Coordinate(3,4); //TODO: find Egg farm coordinates.
-    private final static Coordinate wheatLocation = new Coordinate(5,6); //TODO: find Wheat farm coordinates.
-    private final static Coordinate millLocation = new Coordinate(7,8); //TODO: find Mill coordinates.
+    private final static Coordinate questLocation = new Coordinate(3210,3215);
+    private final static Coordinate milkLocation = new Coordinate(3262,3278);
+    private final static Coordinate eggLocation  = new Coordinate(3206,3286);
+    private final static Coordinate wheatLocation = new Coordinate(3161,3296);
+    private final static Coordinate millLocation = new Coordinate(3169,3306);
 
 
     // @Override
     public void execute(){
 
-        (getCook, "Talk-to", "Cook");
+        getCook.actions("Talk-to").;
         //interaction with cook to begin quest
-        
+
 }
     public void getMilk(){
         final WebPath milkPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(milkLocation);
-        GameObject bucket = GameObject.newQuery().names("Bucket").actions("Take").nearest();
-        GameObject cow = GameObject.newQuery().names("Prized dairy cow").actions("Milk").nearest();
+        GameObject bucket = GameObjects.newQuery().names("Bucket").actions("Take").nearest();
+        GameObject cow = GameObjects.newQuery().names("Prized dairy cow").actions("Milk").nearest();
 
         if(milkPath != null){
             milkPath.step();
@@ -54,7 +56,7 @@ public class CooksAssistant{
 
     public void getEgg(){
         final WebPath eggPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(eggLocation);
-        GameObject egg = GameObject.newQuery().names("Super large egg").actions("Take").nearest();
+        GameObject egg = GameObjects.newQuery().names("Super large egg").actions("Take").nearest();
 
         if(eggPath != null){
             eggPath.step();
@@ -70,7 +72,7 @@ public class CooksAssistant{
     }
 
     public void getFlour(){
-        GameObject wheat = GameObject.newQuery().names("Wheat").actions("Pick").nearest();
+        GameObject wheat = GameObjects.newQuery().names("Wheat").actions("Pick").nearest();
         final WebPath wheatPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(wheatLocation);
         final WebPath millPath = Traversal.getDefaultWeb().getPathBuilder().buildTo(millLocation);
 
